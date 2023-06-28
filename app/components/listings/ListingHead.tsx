@@ -5,6 +5,7 @@ import useCountries from "../hooks/useCountry";
 import Heading from "../Heading";
 import Image from "next/image";
 import HeartButton from "../HeartButton";
+import { User } from "@prisma/client";
 
 interface ListingHeadprops {
   title: string;
