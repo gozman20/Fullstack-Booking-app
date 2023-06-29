@@ -15,10 +15,6 @@ const ListingPage = async ({ params }: { params: Iparams }) => {
   const reservations = await getReservations(params);
   const currentUser = await getCurrentUser();
 
-  const formattedListing = () => {
-    return { ...listing };
-  };
-
   if (!listing) {
     return (
       <ClientOnly>
@@ -30,7 +26,7 @@ const ListingPage = async ({ params }: { params: Iparams }) => {
     <div>
       <ListingClient
         listing={listing}
-        reservation={reservations}
+        reservations={reservations}
         currentUser={currentUser}
       />
     </div>
