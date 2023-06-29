@@ -24,14 +24,14 @@ export default async function getCurrentUser() {
     //if no current user
     if (!currentUser) return null;
 
-    return JSON.stringify(currentUser)
+    // return JSON.stringify(currentUser)
 
-    // return {
-    //   ...currentUser,
-    //   createdAt: currentUser.createdAt.toISOString(),
-    //   updatedAt: currentUser.createdAt.toISOString(),
-    //   emailVerified: currentUser.emailVerified?.toISOString() || null,
-    // };
+    return {
+      ...currentUser,
+      createdAt: currentUser.createdAt.toISOString(),
+      updatedAt: currentUser.createdAt.toISOString(),
+      emailVerified: currentUser.emailVerified?.toISOString() || null,
+    };
   } catch (error: any) {
     return null;
   }
