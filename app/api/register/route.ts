@@ -3,20 +3,17 @@ import bcrypt from "bcrypt";
 import prisma from "@/app/libs/prismadb";
 
 export async function POST(request: Request) {
-  console.log(1);
   const body = await request.json();
   const { email, name, password } = body;
-  console.log(2);
+
   //check if email already exits
-  const result = await prisma.user.findUnique({
+  const emailExist = await prisma.user.findUnique({
     where: {
       email: email,
     },
   });
 
-  if (result) {
-    console.log(result);
-
+  if (emailExist) {
     return NextResponse.json({ error: "Email already exist" }, { status: 500 });
   }
   console.log(4);

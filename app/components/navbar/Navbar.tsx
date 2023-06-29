@@ -9,7 +9,7 @@ import Categories from "./Categories";
 import { User } from "@prisma/client";
 
 interface NavbarProps {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {

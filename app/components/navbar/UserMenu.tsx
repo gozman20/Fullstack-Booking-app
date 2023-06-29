@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { User } from "@prisma/client";
 
 interface UserMenuProps {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
