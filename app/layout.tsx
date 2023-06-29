@@ -7,13 +7,12 @@ import ToasterProvider from "./providers/ToasterProvider";
 import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
-import { SafeUser } from "./types";
 
 const font = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Airbnb",
-  description: "Airbnb clone",
+  title: "Rentals",
+  description: "Property rentals",
 };
 
 export default async function RootLayout({
