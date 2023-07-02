@@ -28,8 +28,8 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
     <div
       className="
       bg-white 
-        rounded-xl 
-        border-[1px]
+        rounded-xl
+        border
       border-neutral-200 
         overflow-hidden
       "

@@ -53,11 +53,8 @@ const RentModal = () => {
     },
   });
 
-  //Watches category value
   const category = watch("category");
-  //watch location category
   const location = watch("location");
-  //watch guestCount
   const guestCount = watch("guestCount");
   const roomCount = watch("roomCount");
   const bathroomCount = watch("bathroomCount");
@@ -91,7 +88,8 @@ const RentModal = () => {
     setIsLoading(true);
     axios
       .post("/api/listings", data)
-      .then(() => {
+      .then((res) => {
+        // console.log(res.data);
         toast.success("Listing created");
         router.refresh();
         reset();

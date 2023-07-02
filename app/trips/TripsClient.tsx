@@ -18,7 +18,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
   currentUser,
 }) => {
   const router = useRouter();
-  const [deleteId, setDeleteId] = useState(" ");
+  const [deleteId, setDeleteId] = useState("");
 
   const onCancel = useCallback(
     (id: string) => {
@@ -31,11 +31,10 @@ const TripsClient: React.FC<TripsClientProps> = ({
           router.refresh();
         })
         .catch((error) => {
-          //To read the actual error from the api call
           toast.error(error?.response?.data?.error);
         })
         .finally(() => {
-          setDeleteId(" ");
+          setDeleteId("");
         });
     },
     [router]

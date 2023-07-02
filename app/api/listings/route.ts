@@ -21,12 +21,13 @@ export async function POST(request: Request) {
     location,
     price,
   } = body;
+  console.log(body);
   //Check if any field is missing
-  Object.keys(body).forEach((value: any) => {
-    if (!body[value]) {
-      NextResponse.error();
-    }
-  });
+  // Object.keys(body).forEach((value: any) => {
+  //   if (!body[value]) {
+  //     NextResponse.error();
+  //   }
+  // });
 
   const listing = await prisma.listing.create({
     data: {
