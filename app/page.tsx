@@ -6,9 +6,17 @@ import getListings from "./actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
 
-export default async function Home() {
+interface IListingsParams {
+  userId?: string;
+}
+
+interface HomeProps {
+  searchParams: IListingsParams;
+}
+
+const Home = async ({ searchParams }: HomeProps) => {
   const currentUser = await getCurrentUser();
-  const listings = await getListings();
+  const listings = await getListings(searchParams);
   if (listings.length === 0) {
     return (
       <ClientOnly>
@@ -36,4 +44,5 @@ export default async function Home() {
       </Container>
     </ClientOnly>
   );
-}
+};
+export default Home;
