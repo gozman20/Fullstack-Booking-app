@@ -4,7 +4,7 @@ import ClientOnly from "@/app/components/ClientOnly";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import getFavoriteListings from "@/app/actions/getFavoriteListings";
 
-import FavoriteClient from "./FavoriteClient";
+import FavoriteClient from "./FavoritesClient";
 
 const ListingPage = async () => {
   const listings = await getFavoriteListings();
