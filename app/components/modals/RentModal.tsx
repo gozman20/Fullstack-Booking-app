@@ -97,7 +97,7 @@ const RentModal = () => {
         rentModal.onClose();
       })
       .catch(() => {
-        toast.error("Something went wrong");
+        toast.error("Please ensure you select your location");
       })
       .finally(() => {
         setIsLoading(false);
@@ -252,7 +252,7 @@ const RentModal = () => {
   return (
     <div>
       <Modal
-        title="Airbnb your home"
+        title="Rentals"
         isOpen={rentModal.isOpen}
         onClose={rentModal.onClose}
         actionLabel={actionLabel}
