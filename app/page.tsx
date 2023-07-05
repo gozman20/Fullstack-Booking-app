@@ -2,13 +2,13 @@ import Image from "next/image";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
-import getListings from "./actions/getListings";
+import getListings, { IListingsParams } from "./actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
 
-interface IListingsParams {
-  userId?: string;
-}
+// interface IListingsParams {
+//   userId?: string;
+// }
 
 interface HomeProps {
   searchParams: IListingsParams;
