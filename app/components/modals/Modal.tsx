@@ -111,7 +111,7 @@ const Modal: React.FC<ModalProps> = ({
             <div
               className="
               translate
-              h-full
+              
               lg:h-auto
               md:h-auto
               border-0 
