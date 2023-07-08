@@ -6,17 +6,14 @@ import getListings, { IListingsParams } from "./actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
 
-// interface IListingsParams {
-//   userId?: string;
-// }
-
+//Learn the trick between this file interface and getListings.ts
 interface HomeProps {
-  params: IListingsParams;
+  searchParams: IListingsParams;
 }
 
-const Home = async ({ params }: HomeProps) => {
+const Home = async ({ searchParams }: HomeProps) => {
   const currentUser = await getCurrentUser();
-  const listings = await getListings(params);
+  const listings = await getListings(searchParams);
   if (listings.length === 0) {
     return (
       <ClientOnly>

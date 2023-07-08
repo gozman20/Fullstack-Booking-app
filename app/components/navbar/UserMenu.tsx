@@ -21,6 +21,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleOpen = () => {
     setIsOpen((value) => !value);
   };
@@ -40,11 +41,11 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           onClick={onRent}
           className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
         >
-          Airbnb your home
+          Rentals
         </div>
         <div
           onClick={toggleOpen}
-          className="p-4 md:px-2 md:py-1 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
+          className="p-4 md:px-2 md:py-1 border border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
         >
           <AiOutlineMenu />
         </div>
@@ -67,12 +68,15 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   onClick={() => router.push("/favorites")}
                   label="My favorites"
                 />
-                <MenuItem onClick={() => {}} label="My reservation" />
+                <MenuItem
+                  onClick={() => router.push("/reservations")}
+                  label="My reservation"
+                />
                 <MenuItem
                   onClick={() => router.push("/properties")}
                   label="My Properties"
                 />
-                <MenuItem onClick={rentModal.onOpen} label="Air bnb home" />
+                <MenuItem onClick={rentModal.onOpen} label="Rentals" />
                 <MenuItem onClick={() => signOut()} label="Log out" />
               </>
             ) : (
