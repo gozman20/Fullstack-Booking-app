@@ -7,7 +7,6 @@ interface Iparams {
 }
 
 export default async function getReservations(params: Iparams) {
-  console.log(params);
   try {
     const { listingId, userId, authorId } = params;
     const query: any = {};
@@ -20,7 +19,10 @@ export default async function getReservations(params: Iparams) {
     if (authorId) {
       query.listing = { userId: authorId };
     }
+
     //Find the reservation based on  the query passed above
+    // console.log(query);
+
     const reservations = await prisma.reservation.findMany({
       where: query,
       include: {
