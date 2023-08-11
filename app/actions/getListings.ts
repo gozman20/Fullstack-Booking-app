@@ -58,6 +58,7 @@ export default async function getListings(params: IListingsParams) {
     }
 
     if (startDate && endDate) {
+      console.log(startDate, endDate);
       query.NOT = {
         reservations: {
           some: {
@@ -75,7 +76,7 @@ export default async function getListings(params: IListingsParams) {
         },
       };
     }
-    // console.log(query);
+    console.log(query.NOT.reservations.some);
     const listings = await prisma.listing.findMany({
       where: query,
       orderBy: {

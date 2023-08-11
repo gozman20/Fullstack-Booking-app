@@ -1,10 +1,10 @@
 "use client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "../hooks/useRegisterModal";
-import useLoginModal from "../hooks/useLoginModal.ts";
+import useLoginModal from "../hooks/useLoginModal";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 import useRentModal from "../hooks/useRentModal";
@@ -19,6 +19,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const router = useRouter();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+
   const rentModal = useRentModal();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,6 +34,12 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     //Open rent modal
     rentModal.onOpen();
   }, [loginModal, currentUser, rentModal]);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", () => {
+      setIsOpen(false);
+    });
+  }, []);
 
   return (
     <div className="relative">

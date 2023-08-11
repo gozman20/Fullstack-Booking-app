@@ -5,8 +5,8 @@ import EmptyState from "./components/EmptyState";
 import getListings, { IListingsParams } from "./actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
+import { useEffect } from "react";
 
-//Learn the trick between this file interface and getListings.ts
 interface HomeProps {
   searchParams: IListingsParams;
 }
@@ -14,6 +14,7 @@ interface HomeProps {
 const Home = async ({ searchParams }: HomeProps) => {
   const currentUser = await getCurrentUser();
   const listings = await getListings(searchParams);
+
   if (listings.length === 0) {
     return (
       <ClientOnly>
