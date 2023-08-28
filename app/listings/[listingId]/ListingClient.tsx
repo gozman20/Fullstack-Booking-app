@@ -11,7 +11,7 @@ import {
   eachDayOfInterval,
 } from "date-fns";
 
-import useLoginModal from "@/app/components/hooks/useLoginModal.ts";
+import useLoginModal from "@/app/components/hooks/useLoginModal";
 import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 
 import Container from "@/app/components/Container";
