@@ -35,11 +35,11 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     rentModal.onOpen();
   }, [loginModal, currentUser, rentModal]);
 
-  useEffect(() => {
-    document.addEventListener("mousedown", () => {
-      setIsOpen(false);
-    });
-  }, []);
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", () => {
+  //     setIsOpen(false);
+  //   });
+  // }, []);
 
   return (
     <div className="relative">
