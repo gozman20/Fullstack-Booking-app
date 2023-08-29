@@ -13,7 +13,7 @@ const font = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Rentals",
-  description: "Property rentals",
+  description: "Property rentals.",
 };
 
 export default async function RootLayout({

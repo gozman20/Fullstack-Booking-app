@@ -76,7 +76,7 @@ export default async function getListings(params: IListingsParams) {
         },
       };
     }
-    console.log(query.NOT.reservations.some);
+
     const listings = await prisma.listing.findMany({
       where: query,
       orderBy: {
