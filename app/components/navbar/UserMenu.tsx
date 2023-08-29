@@ -85,60 +85,51 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
       <Dialog
         open={openMenu}
         as="div"
-        className="relative z-40 "
+        className="relative z-40  "
         onClose={onCloseMenu}
       >
         {/* Background color and opacity */}
-        <div className="fixed inset-0 bg-black bg-opacity-25" />
-
-        {/* Dialog position */}
-        <div
-          className="fixed inset-
-         text-sm
-                
-              
-        z-40 flex top-0 right-0"
-        >
-          <Dialog.Panel
-            className="relative ml-auto
-           flex  w-full max-w-xs flex-col
-            overflow-y- bg-white py-4 pb-6 shadow-xl"
-          >
-            {/* Close button */}
-            <div className="flex items-center justify-end px-4">
-              <div onClick={onCloseMenu}>
-                <AiOutlineClose />
+        {/* this div below can also be a self closing div */}
+        <div className="fixed inset-0 bg-black bg-opacity-25">
+          {/* Dialog position */}
+          <div className="fixed top-0 right-0 max-w-sm">
+            <Dialog.Panel className="flex flex-col w-full bg-white pt-4 ">
+              {/* Close button */}
+              <div className="flex items-center justify-end px-4">
+                <div onClick={onCloseMenu}>
+                  <AiOutlineClose />
+                </div>
               </div>
-            </div>
-            {currentUser ? (
-              <>
-                <MenuItem
-                  label="My trips"
-                  onClick={() => router.push("/trips")}
-                />
-                <MenuItem
-                  label="My favorites"
-                  onClick={() => router.push("/favorites")}
-                />
-                <MenuItem
-                  label="My reservations"
-                  onClick={() => router.push("/reservations")}
-                />
-                <MenuItem
-                  label="My properties"
-                  onClick={() => router.push("/properties")}
-                />
-                <MenuItem label="Rentals" onClick={rentModal.onOpen} />
-                <hr />
-                <MenuItem label="Logout" onClick={() => signOut()} />
-              </>
-            ) : (
-              <>
-                <MenuItem label="Login" onClick={loginModal.onOpen} />
-                <MenuItem label="Sign up" onClick={registerModal.onOpen} />
-              </>
-            )}
-          </Dialog.Panel>
+              {currentUser ? (
+                <div className="p-3">
+                  <MenuItem
+                    label="My trips"
+                    onClick={() => router.push("/trips")}
+                  />
+                  <MenuItem
+                    label="My favorites"
+                    onClick={() => router.push("/favorites")}
+                  />
+                  <MenuItem
+                    label="My reservations"
+                    onClick={() => router.push("/reservations")}
+                  />
+                  <MenuItem
+                    label="My properties"
+                    onClick={() => router.push("/properties")}
+                  />
+                  <MenuItem label="Rentals" onClick={rentModal.onOpen} />
+                  <hr />
+                  <MenuItem label="Logout" onClick={() => signOut()} />
+                </div>
+              ) : (
+                <div className="p-3">
+                  <MenuItem label="Login" onClick={loginModal.onOpen} />
+                  <MenuItem label="Sign up" onClick={registerModal.onOpen} />
+                </div>
+              )}
+            </Dialog.Panel>
+          </div>
         </div>
       </Dialog>
     </div>
